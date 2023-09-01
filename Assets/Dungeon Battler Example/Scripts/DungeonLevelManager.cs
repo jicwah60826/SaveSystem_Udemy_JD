@@ -65,6 +65,9 @@ public class DungeonLevelManager : MonoBehaviour
         // Set the current health in the save system class to the current health from the DungeonPlayer instance
         SaveSystem.instance.activeSave.currentHP = DungeonPlayer.instance.currentHealth;
 
+        //store the next level into the saveData class so that this is stored to disc
+        SaveSystem.instance.activeSave.currentLevel = nextLevel;
+
 
     }
 }
