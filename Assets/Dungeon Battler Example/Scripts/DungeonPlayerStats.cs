@@ -29,6 +29,7 @@ public class DungeonPlayerStats : MonoBehaviour
         currentXP = theSave.currentExp;
         xpToLevel = theSave.expToLevel;
         maxHP = theSave.maxHP;
+        defence = theSave.defense;
     }
 
     private void Update()
