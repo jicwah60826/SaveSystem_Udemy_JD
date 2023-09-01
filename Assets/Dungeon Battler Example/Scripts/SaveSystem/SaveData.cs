@@ -7,6 +7,8 @@ public class SaveData
     public int strength, defense;
     public int level, currentExp, expToLevel;
     public int maxHP, currentHP;
-    public DungeonWeaponController.weaponType curentWeapon;
     public string currentLevel;
+
+    //store a reference for the weapon type enum from within the DungeonWeaponController script
+    public DungeonWeaponController.weaponType currentWeapon;
 }

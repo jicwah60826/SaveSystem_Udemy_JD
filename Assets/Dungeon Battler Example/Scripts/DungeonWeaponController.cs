@@ -25,10 +25,8 @@ public class DungeonWeaponController : MonoBehaviour
 
     public void SetUp()
     {
-        if (activeWeaponInfo.damageAmount == 0)
-        {
-            NewWeapon(weaponType.Sword);
-        }
+        //Call the new weapon method and pass in the argument for the current weapon from the data in the save file on disk
+        NewWeapon(SaveSystem.instance.activeSave.currentWeapon);
     }
 
     // Update is called once per frame
@@ -86,6 +84,9 @@ public class DungeonWeaponController : MonoBehaviour
         }
 
         DungeonUIController.instance.UpdateUI();
+
+        //Update the SaveSystem class with the new weapon type
+        SaveSystem.instance.activeSave.currentWeapon = newWeapon;
     }
 
     public void DoAttack()
