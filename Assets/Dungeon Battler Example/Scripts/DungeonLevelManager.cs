@@ -28,6 +28,8 @@ public class DungeonLevelManager : MonoBehaviour
     {
         DungeonUIController.instance.StartFadeToBlack();
 
+        UpdateSaveSystem();
+
         yield return new WaitForSeconds(.5f);
 
         if (nextLevel != "")
@@ -38,5 +40,26 @@ public class DungeonLevelManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    void UpdateSaveSystem()
+    {
+
+        //create a reference to the DungeonPlayer script so that we can PULL data from this and inject into the Active Save class
+        DungeonPlayerStats stats = DungeonPlayerStats.instance;
+
+        // Set the Data in the save system class to the current data from the DungeonPlayerStats instance
+        SaveSystem.instance.activeSave.strength = stats.strength;
+        SaveSystem.instance.activeSave.defense = stats.defence;
+        SaveSystem.instance.activeSave.level = stats.level;
+        SaveSystem.instance.activeSave.currentExp = stats.currentXP;
+        SaveSystem.instance.activeSave.expToLevel = stats.strength;
+        SaveSystem.instance.activeSave.strength = stats.xpToLevel;
+        SaveSystem.instance.activeSave.maxHP = stats.maxHP;
+
+        // Set the current health in the save system class to the current health from the DungeonPlayer instance
+        SaveSystem.instance.activeSave.currentHP = DungeonPlayer.instance.currentHealth;
+
+
     }
 }

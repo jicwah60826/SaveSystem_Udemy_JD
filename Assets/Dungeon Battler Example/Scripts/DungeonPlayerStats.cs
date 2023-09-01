@@ -20,6 +20,17 @@ public class DungeonPlayerStats : MonoBehaviour
 
     public int maxHP;
 
+    private void Start()
+    {
+        SaveData theSave = SaveSystem.instance.activeSave;
+
+        strength = theSave.strength;
+        level = theSave.level;
+        currentXP = theSave.currentExp;
+        xpToLevel = theSave.expToLevel;
+        maxHP = theSave.maxHP;
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.X))

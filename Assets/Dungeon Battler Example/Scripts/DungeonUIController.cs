@@ -104,5 +104,6 @@ public class DungeonUIController : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene(mainMenuScene);
+        Time.timeScale = 1f;
     }
 }

@@ -26,7 +26,11 @@ public class DungeonPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = DungeonPlayerStats.instance.maxHP;
+        //currentHealth = DungeonPlayerStats.instance.maxHP;
+
+        currentHealth = SaveSystem.instance.activeSave.currentHP;
+
+
 
         weapon.SetUp();
 
