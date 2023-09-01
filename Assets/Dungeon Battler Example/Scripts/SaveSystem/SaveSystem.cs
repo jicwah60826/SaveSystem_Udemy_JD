@@ -8,6 +8,9 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem instance;
     public SaveData activeSave;
+
+    public string sceneToNotSave;
+
     private void Awake()
     {
         if (instance == null)

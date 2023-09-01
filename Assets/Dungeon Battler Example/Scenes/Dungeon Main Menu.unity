@@ -715,8 +715,9 @@ MonoBehaviour:
     expToLevel: 5
     maxHP: 10
     currentHP: 10
-    curentWeapon: 0
     currentLevel: 
+    currentWeapon: 0
+  sceneToNotSave: Dungeon Main Menu
 --- !u!4 &670498951
 Transform:
   m_ObjectHideFlags: 0
