@@ -28,7 +28,12 @@ public class DungeonLevelManager : MonoBehaviour
     {
         DungeonUIController.instance.StartFadeToBlack();
 
+        // Update save system class
         UpdateSaveSystem();
+
+        // save data to disk
+        SaveSystem.instance.Save();
+
 
         yield return new WaitForSeconds(.5f);
 
