@@ -103,6 +103,21 @@ public class DungeonUIController : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        /* Destroy the save system when the player goes back out to the main menu
+
+        Logic for this setup:
+
+        When the player goes out to main menu, if a save file exists on disk, they'll be able see the continue button and continue from the LAST saved data.
+        We're not deleting the file from disk with the below, we're just deleting the SaveSystem instance from the running game.
+
+        But - when the player clicks "New Game", we'll re-create a new instance of the Save System because we're destroying it as soon as they have clicked go back to main menu
+
+
+        */
+
+
+        SaveSystem.instance.DestroySaveSystem();
+
         SceneManager.LoadScene(mainMenuScene);
         Time.timeScale = 1f;
     }

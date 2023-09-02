@@ -13,18 +13,20 @@ public class SaveSystem : MonoBehaviour
 
     private void Awake()
     {
+        SetupInstance();
+    }
+
+    public void SetupInstance()
+    {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            // load from the save system
-            Load();
         }
-        else
+        else if(instance != this)
         {
             Destroy(gameObject);
         }
-
     }
 
     public void Save()
@@ -51,5 +53,14 @@ public class SaveSystem : MonoBehaviour
         {
             Debug.LogWarning("No save data to load");
         }
+    }
+
+    public void DestroySaveSystem()
+    {
+        // no save system is assigned as an instance 
+        instance = null;
+
+        //destroy the save system game object
+        Destroy(gameObject);
     }
 }
